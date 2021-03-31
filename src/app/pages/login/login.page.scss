@@ -1,0 +1,24 @@
+.logo{
+    height: 35%;
+    
+}
+
+.form{
+    .logBtn{
+        --background:linear-gradient(to right top, #86a639, #7db336, #6ec135, #56cf3a, #1cdd43);
+        --background-hover: linear-gradient(to right top, #86a639, #7db336, #6ec135, #56cf3a, #1cdd43);
+        --background-focused: linear-gradient(to right top, #86a639, #7db336, #6ec135, #56cf3a, #1cdd43);
+        --background-activated: linear-gradient(to right top, #86a639, #7db336, #6ec135, #56cf3a, #1cdd43);
+    }
+    .text{
+        padding: 0% 2%;
+        h4{
+            text-align: center;
+        }
+    }
+}
+
+a,p{
+    text-align: center;
+    color: #2bb04a;
+}
