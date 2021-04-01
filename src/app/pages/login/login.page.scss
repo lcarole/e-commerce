@@ -16,6 +16,16 @@
             text-align: center;
         }
     }
+    .errorEmail {
+        border-bottom: #ff0000;
+        --border-color: #ff0000;
+        --highlight-background: #ff0000;
+    }
+    .goodEmail {
+        border-bottom: #64fa00;
+        --border-color: #64fa00;
+        --highlight-background: #64fa00;
+    }
 }
 
 a,p{

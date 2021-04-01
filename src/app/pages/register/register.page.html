@@ -15,18 +15,21 @@
   </ion-row>
   <ion-row class="form">
   <ion-col size="12">
-    <ion-item>
+    <ion-item [ngClass]="isErrorMail ? 'errorEmail' : 'goodEmail'">
       <ion-label position="floating">Adresse Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input (keydown)="checkEmail()" type="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item [ngClass]="user.password.trim().length < 5? 'errorEmail' : 'goodEmail'">
       <ion-label position="floating">Mot de passe</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item [ngClass]="user.confirm_password.trim() != user.password.trim() || user.confirm_password.trim().length < 5? 'errorEmail' : 'goodEmail'">
       <ion-label position="floating">Confirmation de mot de passe</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.confirm_password"></ion-input>
     </ion-item>
+  </ion-col>
+  <ion-col>
+    <ion-button [disabled]="isErrorMail" (click)="register()" class="logBtn"expand="block">Creation</ion-button>
   </ion-col>
   </ion-row>
 </ion-content>
