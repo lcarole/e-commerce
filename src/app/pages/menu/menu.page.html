@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>menu</ion-title>
+    <ion-button ion-button menuToggle active = true shape = "undefined">
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">
+      E-sells
+    </ion-title>
+    <ion-searchbar animated = true></ion-searchbar>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <promo>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="item.src"></ion-img>
+        </ion-thumbnail>
+        <ion-label>{{item.text}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </promo>
 </ion-content>
