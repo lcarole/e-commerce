@@ -111,9 +111,9 @@ export class DataService {
 
     let prod1: IProduit = {
       id: 1,
-      nom: 'Womens T-Shirt',
-      price: 55,
-      image: '../../assets/produits/prod-1.png'
+      nom: 'Iphone 12 noir 64 Go',
+      price: 909,
+      image: '../assets/produits/iphone-12-noir.png'
     }
     let prod2: IProduit = {
       id: 2,
@@ -133,14 +133,14 @@ export class DataService {
     return produits;
   }
 
-  getBestSellproduits() {
-    let produits = [];
+  getBestSellProduits() {
+    let BestProduits = [];
 
     let prod1: IProduit = {
       id: 1,
-      nom: 'Womens T-Shirt',
-      price: 55,
-      image: '../../assets/produits/prod-4.png'
+      nom: 'Iphone 12 noir 64 Go',
+      price: 909,
+      image: '../assets/produits/iphone-12-noir.png'
     }
     let prod2: IProduit = {
       id: 2,
@@ -155,8 +155,8 @@ export class DataService {
       image: '../../assets/produits/prod-6.png'
     }
 
-    produits.push(prod1, prod2, prod3);
+    BestProduits.push(prod1, prod2, prod3);
 
-    return produits;
+    return BestProduits;
   }
 }
