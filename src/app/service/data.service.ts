@@ -10,7 +10,7 @@ export interface ICategorie {
 export interface IProduit {
   id: number,
   nom: string,
-  price: number,
+  prix: number,
   image: string,
 }
 
@@ -112,19 +112,19 @@ export class DataService {
     let prod1: IProduit = {
       id: 1,
       nom: 'Iphone 12 noir 64 Go',
-      price: 909,
+      prix: 909,
       image: '../assets/produits/iphone-12-noir.png'
     }
     let prod2: IProduit = {
       id: 2,
       nom: 'Mens T-Shirt',
-      price: 34,
+      prix: 34,
       image: '../../assets/produits/prod-2.png'
     }
     let prod3: IProduit = {
       id: 1,
       nom: 'Womens T-Shirt',
-      price: 40,
+      prix: 40,
       image: '../../assets/produits/prod-3.png'
     }
 
@@ -139,19 +139,19 @@ export class DataService {
     let prod1: IProduit = {
       id: 1,
       nom: 'Iphone 12 noir 64 Go',
-      price: 909,
+      prix: 909,
       image: '../assets/produits/iphone-12-noir.png'
     }
     let prod2: IProduit = {
       id: 2,
       nom: 'Mens T-Shirt',
-      price: 34,
+      prix: 34,
       image: '../../assets/produits/prod-5.png'
     }
     let prod3: IProduit = {
       id: 1,
       nom: 'Womens T-Shirt',
-      price: 40,
+      prix: 40,
       image: '../../assets/produits/prod-6.png'
     }
 

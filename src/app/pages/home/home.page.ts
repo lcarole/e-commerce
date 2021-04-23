@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../data.service';
+import {DataService} from '../../service/data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import {DataService} from '../../data.service';
 })
 export class HomePage implements OnInit {
   public produits = [];
+  public BestSellProduits = [];
   
 
   constructor(
@@ -15,7 +16,7 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.produits = this.data.getProduits();
+    this.BestSellProduits = this.data.getBestSellProduits();
   }
 
   recherche(event:any){

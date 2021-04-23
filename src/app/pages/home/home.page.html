@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" size="large">
-        <ion-icon name="menu-sharp"></ion-icon>
-      </ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start" size="large" routerLink='/menu' routerDirection="root">
+      <ion-icon name="menu-sharp"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" routerLink ="/login" routerDirection="forward">
       <ion-icon name="person-outline"></ion-icon>
     </ion-buttons>
-    <ion-button slot="end">
+    <ion-button slot="end" routerLink='/panier' routerDirection="forward">
       <ion-icon name="cart-outline"></ion-icon>
     </ion-button>
     <ion-title>
@@ -20,12 +20,13 @@
 
   <div class="ion-padding">
     <ion-list>
-      <ion-item *ngFor="let produit of produits">
+      <ion-item *ngFor="let produit of produits" button = true detail=false>
         {{produit.nom}}
       </ion-item>
     </ion-list>
   </div>
-  <div class="title ion-padding">
+
+  <!--<div class="title ion-padding">
     <h2 class="font-bold">Produit en vente</h2>
   </div>
 
@@ -34,12 +35,12 @@
       <ion-slide *ngFor="let produit of produits">
         <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
           <img src="{{ produit.image }}" />
-          <p>{{ produit.price }}€</p>
-          <h6>{{ produit.name }}</h6>
+          <h6>{{ produit.nom }}</h6>
+          <p>{{ produit.prix }}€</p>
         </ion-col>
       </ion-slide>
     </ion-slides>
-  </div>
+  </div>-->
 
   <div class="title ion-padding">
     <h2 class="font-bold">Meilleures Ventes</h2>
@@ -50,8 +51,8 @@
       <ion-slide *ngFor="let produit of BestSellProduits">
         <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
           <img src="{{ produit.image }}" />
-          <p>{{ produit.price }}€</p>
-          <h6>{{ produit.name }}</h6>
+          <h6>{{ produit.nom }}</h6>
+          <p>{{ produit.prix }}€</p>
         </ion-col>
       </ion-slide>
     </ion-slides>

@@ -18,7 +18,19 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+  },  {
+    path: 'panier',
+    loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
   },
+  {
+    path: 'recherche',
+    loadChildren: () => import('./pages/recherche/recherche.module').then( m => m.RecherchePageModule)
+  },
+  {
+    path: 'produit-select',
+    loadChildren: () => import('./pages/produit-select/produit-select.module').then( m => m.ProduitSelectPageModule)
+  },
+
 
 ];
 
