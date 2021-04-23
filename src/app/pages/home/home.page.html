@@ -13,7 +13,9 @@
       E-Selled
     </ion-title>
   </ion-toolbar>
-  <ion-searchbar placeholder="Que recherchez-vous ?" (ionChange) = 'recherche($event)'></ion-searchbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Que recherchez-vous ?" (ionChange) = 'recherche($event)'></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -49,7 +51,7 @@
   <div class="produit-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
       <ion-slide *ngFor="let produit of BestSellProduits">
-        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
+        <ion-col class="ion-text-left" routerLink="/produit" (click)="detail($event)">
           <img src="{{ produit.image }}" />
           <h6>{{ produit.nom }}</h6>
           <p>{{ produit.prix }}€</p>

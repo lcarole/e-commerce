@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../service/data.service';
+import {DataService, IProduit} from '../../service/data.service';
+import {NavController} from '@ionic/angular'
+import { ProduitPage } from '../produit/produit.page'
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,11 @@ import {DataService} from '../../service/data.service';
 export class HomePage implements OnInit {
   public produits = [];
   public BestSellProduits = [];
+  public produitSelect: IProduit;
   
 
   constructor(
+    public navCtrl : NavController,
     private data: DataService,
   ) { }
 
@@ -28,8 +32,14 @@ export class HomePage implements OnInit {
         return (item.nom.toLowerCase().indexOf(ev.toLowerCase())>-1)
       })
     }
+    else{
+      this.produits = [];
+    }
   }
 
-  //selectVal(produit.nom){}
+  /*produitInfo(event:any){
+
+    this.navCtrl.navigateForward(ProduitPage,);
+  }*/
 
 }
