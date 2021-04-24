@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService, IProduit} from '../../service/data.service';
+import {DataService, IProduit} from '../../services/data.service';
 import {NavController} from '@ionic/angular'
 import { ProduitPage } from '../produit/produit.page'
 

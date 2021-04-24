@@ -6,24 +6,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="ion-padding container">
-    <h1 vertical-align="middle">Connexion</h1>
+<ion-content>
 
-    <div class="form-container">
-      <ion-item>
-        <ion-input type="email" placeholder="Email"></ion-input>
+  <ion-row class="logo">
+      <ion-col size="12" class="ion-align-self-center">
+          <img src="assets/img/cdis.png" alt="">
+      </ion-col>
+  </ion-row>
+  <ion-row class="form">
+    <ion-col class="text" size="12">
+      <h4>Identifiez-vous</h4>
+  </ion-col>
+    <ion-col size="12">
+      <ion-item [ngClass]="isErrorMail ? 'errorEmail' : 'goodEmail'">
+        <ion-label position="floating">Adresse Email</ion-label>
+        <ion-input (keydown)="checkEmail()" type="email" [(ngModel)]="email"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-input type="password" placeholder="Mot de passe"></ion-input>
-        <!--<ion-icon name="eye" slot="end"></ion-icon>-->
+      <ion-item [ngClass]="password.trim().length < 4 ? 'errorEmail' : 'goodEmail'">
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-
-      <ion-button expand="block" class="main-button" (click)="login()">Se connecter</ion-button>
-
-      <div class="register">
-        Vous n'avez pas de compte ? <ion-button color="dark" fill="clear" routerLink="/signup" routerDirection="forward">S'inscrire</ion-button>
-      </div>
-    </div>
-  </div>
+    </ion-col>
+    <ion-col>
+      <ion-button [disabled]="isErrorMail || password.trim().length < 4"  (click)="loginForm()" class="logBtn"expand="block">Connexion</ion-button>
+    </ion-col>
+    <ion-col size="12">
+      <p><a routerLink="/register">Créer un compte</a></p>
+  </ion-col>
+  </ion-row>
+      
 </ion-content>
