@@ -14,13 +14,13 @@
         <ion-label position="floating">Adresse Email</ion-label>
         <ion-input (keydown)="checkEmail()" type="email" [(ngModel)]="email"></ion-input>
       </ion-item>
-      <ion-item [ngClass]="password.trim().length < 4 ? 'errorEmail' : 'goodEmail'">
+      <ion-item [ngClass]="password.trim().length < 5 ? 'errorEmail' : 'goodEmail'">
         <ion-label position="floating">Mot de passe</ion-label>
         <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
-      <ion-button [disabled]="isErrorMail || password.trim().length < 4"  (click)="loginForm()" class="logBtn"expand="block">Connexion</ion-button>
+      <ion-button [disabled]="isErrorMail || password.trim().length < 5"  (click)="loginForm()" class="logBtn"expand="block">Connexion</ion-button>
     </ion-col>
     <ion-col size="12">
       <p><a routerLink="/register">Créer un compte</a></p>
