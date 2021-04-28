@@ -20,10 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
   },
   {
-    path: 'recherche',
-    loadChildren: () => import('./pages/recherche/recherche.module').then( m => m.RecherchePageModule)
-  },
-  {
     path: 'produit',
     loadChildren: () => import('./pages/produit/produit.module').then( m => m.ProduitPageModule)
   },
@@ -31,6 +27,19 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+  },  {
+    path: 'detail-produit',
+    loadChildren: () => import('./pages/detail-produit/detail-produit.module').then( m => m.DetailProduitPageModule)
+  },
+
+
 ];
 
 @NgModule({

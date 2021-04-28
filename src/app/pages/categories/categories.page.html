@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline" text=''></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngFor="let categorie of Categories">
+    <ion-item button = true>
+      {{categorie.id}} - {{categorie.nom}}
+    </ion-item>
+  </ion-list>
+</ion-content>
