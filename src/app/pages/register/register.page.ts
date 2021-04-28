@@ -13,7 +13,7 @@ export class RegisterPage implements OnInit {
 
 
   isErrorMail:boolean=true;
-  user:UserRegister={pseudo:'',email:'',password:'',confirm_password:''};
+  user:UserRegister={fullname:'',email:'',password:'',confirm_password:''};
 
   constructor( private auth:AuthService,
     private loading:LoadingController,
@@ -35,7 +35,7 @@ export class RegisterPage implements OnInit {
       message: 'Please wait...',
   });
   await load.present();
-    this.user.pseudo = this.user.email.split('@') [0];
+    this.user.fullname = this.user.email.split('@') [0];
     this.auth.register(this.user).then(async(data)=>{
       console.log(data);
       await this.loading.dismiss();

@@ -23,12 +23,22 @@ export class LoginPage implements OnInit {
     private platform:Platform,
     private storage:NativeStorage) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let token
+        if (this.platform.is("desktop")) {
+             token = localStorage.getItem('token')
+        } else {
+            token =await this.storage.getItem('token')
+        }
+        console.log(token);
+        if(token !== null && token !== undefined){
+            this.router.navigate(['/home'])
+        }
   }
 
   checkEmail() {
     const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
-    // this.isErrorMail = !regex.test(this.email);
+    
     this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
 }
 
