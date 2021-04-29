@@ -12,6 +12,7 @@ export interface IProduit {
   nom: string,
   prix: number,
   image: string,
+  categorie:number,
 }
 
 @Injectable({
@@ -78,7 +79,7 @@ export class DataService {
     }
     const cat14: ICategorie = {
       id: 14,
-      nom: 'Mode Bijoux'
+      nom: 'Mode et Bijoux'
     }
     const cat15: ICategorie = {
       id: 15,
@@ -106,26 +107,29 @@ export class DataService {
     return categories;
   }
 
-  getProduits() {
-    let produits = [];
+  getProduits():IProduit[] {
+    let produits: IProduit[] = [];
 
     let prod1: IProduit = {
       id: 1,
       nom: 'Iphone 12 noir 64 Go',
       prix: 909,
-      image: '../assets/produits/iphone-12-noir.png'
+      image: '../assets/produits/iphone-12-noir.png',
+      categorie: 10
     }
     let prod2: IProduit = {
       id: 2,
       nom: 'Mens T-Shirt',
       prix: 34,
-      image: '../../assets/produits/prod-2.png'
+      image: '../../assets/produits/prod-2.png',
+      categorie: 14
     }
     let prod3: IProduit = {
-      id: 1,
+      id: 3,
       nom: 'Womens T-Shirt',
       prix: 40,
-      image: '../../assets/produits/prod-3.png'
+      image: '../../assets/produits/prod-3.png',
+      categorie:14
     }
 
     produits.push(prod1, prod2, prod3);
@@ -140,19 +144,22 @@ export class DataService {
       id: 1,
       nom: 'Iphone 12 noir 64 Go',
       prix: 909,
-      image: '../assets/produits/iphone-12-noir.png'
+      image: '../assets/produits/iphone-12-noir.png',
+      categorie:10
     }
     let prod2: IProduit = {
       id: 2,
       nom: 'Mens T-Shirt',
       prix: 34,
-      image: '../../assets/produits/prod-5.png'
+      image: '../../assets/produits/prod-2.png',
+      categorie : 14
     }
     let prod3: IProduit = {
-      id: 1,
+      id: 3,
       nom: 'Womens T-Shirt',
       prix: 40,
-      image: '../../assets/produits/prod-6.png'
+      image: '../../assets/produits/prod-3.png',
+      categorie: 14
     }
 
     BestProduits.push(prod1, prod2, prod3);

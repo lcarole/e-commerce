@@ -22,7 +22,7 @@
 
   <div class="ion-padding">
     <ion-list>
-      <ion-item *ngFor="let produit of produits" button = true detail=false>
+      <ion-item *ngFor="let produit of produits" button = true detail=false (click)="detail(produit)">
         {{produit.nom}}
       </ion-item>
     </ion-list>
@@ -51,7 +51,7 @@
   <div class="produit-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
       <ion-slide *ngFor="let produit of BestSellProduits">
-        <ion-col class="ion-text-left" routerLink="/produit" (click)="detail($event)">
+        <ion-col class="ion-text-left" routerLink="/detail-produit" (click)="detail(produit)">
           <img src="{{ produit.image }}" />
           <h6>{{ produit.nom }}</h6>
           <p>{{ produit.prix }}€</p>

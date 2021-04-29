@@ -34,10 +34,16 @@ const routes: Routes = [
   {
     path: 'categories',
     loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
-  },  {
-    path: 'detail-produit',
+  },
+  {
+    path: 'detail-produit/:dP',
     loadChildren: () => import('./pages/detail-produit/detail-produit.module').then( m => m.DetailProduitPageModule)
   },
+  {
+    path: 'filtre-categorie/:fP',
+    loadChildren: () => import('./pages/filtre-categorie/filtre-categorie.module').then( m => m.FiltreCategoriePageModule)
+  },
+
 
 
 ];

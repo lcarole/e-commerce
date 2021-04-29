@@ -7,7 +7,7 @@
 </ion-header>
 <ion-content>
   <ion-list *ngFor="let categorie of Categories">
-    <ion-item button = true>
+    <ion-item button = true (click)="filterProduit(categorie)">
       {{categorie.id}} - {{categorie.nom}}
     </ion-item>
   </ion-list>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {DataService, IProduit} from '../../services/data.service';
 
 @Component({
   selector: 'app-detail-produit',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailProduitPage implements OnInit {
 
-  constructor() { }
+  data:any;
+  public listProduits:IProduit[];
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private dataService:DataService,
+  ) {
+      this.data = this.activatedRoute.snapshot.paramMap.get('dP');
+
+   }
 
   ngOnInit() {
+    this.listProduits = this.dataService.getProduits();
+    this.listProduits.forEach((item) => {
+      if(item.id == this.data){
+        this.data = item;
+      }
+    });
   }
+
+
 
 }

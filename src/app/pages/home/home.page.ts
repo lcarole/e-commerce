@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService, IProduit} from '../../services/data.service';
-import {NavController} from '@ionic/angular'
-import { ProduitPage } from '../produit/produit.page'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +8,14 @@ import { ProduitPage } from '../produit/produit.page'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public produits = [];
-  public BestSellProduits = [];
+  public produits:IProduit[] = [];
+  public BestSellProduits:IProduit[] = [];
   public produitSelect: IProduit;
   
 
   constructor(
-    public navCtrl : NavController,
     private data: DataService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -37,9 +36,9 @@ export class HomePage implements OnInit {
     }
   }
 
-  /*produitInfo(event:any){
-
-    this.navCtrl.navigateForward(ProduitPage,);
-  }*/
+  detail(produit:IProduit){
+    
+    this.router.navigate(['/detail-produit/'+JSON.stringify(produit.id)]);
+  }
 
 }
