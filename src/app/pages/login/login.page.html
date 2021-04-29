@@ -20,7 +20,7 @@
       </ion-item>
     </ion-col>
     <ion-col>
-      <ion-button [disabled]="isErrorMail || password.trim().length < 5"  (click)="loginForm()" class="logBtn"expand="block">Connexion</ion-button>
+      <ion-button    [disabled]="isErrorMail || password.trim().length < 5"  (click)="logForm()" class="logBtn"expand="block">Connexion</ion-button>
     </ion-col>
     <ion-col size="12">
       <p><a routerLink="/register">Créer un compte</a></p>

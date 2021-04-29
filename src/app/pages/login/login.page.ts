@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { json } from 'express';
+
 
 
 
@@ -25,14 +27,14 @@ export class LoginPage implements OnInit {
 
   async ngOnInit() {
     let token
-        if (this.platform.is("desktop")) {
-             token = localStorage.getItem('token')
-        } else {
-            token =await this.storage.getItem('token')
+        if(this.platform.is("desktop")){
+          token=localStorage.getItem('token');
+        }else{
+          token = await this.storage.getItem('token');
         }
         console.log(token);
-        if(token !== null && token !== undefined){
-            this.router.navigate(['/home'])
+        if(token!==undefined&& token!==null){
+          this.router.navigate(['/menu']);
         }
   }
 
@@ -42,27 +44,29 @@ export class LoginPage implements OnInit {
     this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
 }
 
-async loginForm() {
+async logForm() {
   const load = await this.loading.create({
       message: 'Please wait...',
   });
   await load.present();
-  this.auth.login(this.email, this.password).then(async(user: any) => {
-      console.log(this.platform.platforms());
-      if (this.platform.is("desktop")) {
-          localStorage.setItem('token', user.token)
-          localStorage.setItem('user', JSON.stringify(user.user))
-      } else {
-          await this.storage.setItem('token', user.token)
-          await this.storage.setItem('user', JSON.stringify(user.user))
-      }
-      await this.loading.dismiss();
-      this.router.navigate(['/home'])
+  // console.log(this.email)
+  // console.log(this.password)
+  this.auth.login(this.email,this.password).then(async(user:any)=>{
+    if(this.platform.is("desktop")){
+      localStorage.setItem('token',user.token)
+      localStorage.setItem('user',JSON.stringify(user))
+    }else{
+      await this.storage.setItem('token',user.token)
+      await this.storage.setItem('user',JSON.stringify(user))
+    }
+    await this.loading.dismiss();
+    this.router.navigate(['/Menu'])
   }).catch(async() => {
-      this.email = ''
-      this.password = ''
-      this.isErrorMail = true;
-      await this.loading.dismiss();
+    console.log('erreur');
+    this.email=''
+    this.password=''
+    this.isErrorMail=true;
+    await this.loading.dismiss();
   })
 }
 
