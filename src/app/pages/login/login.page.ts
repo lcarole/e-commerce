@@ -7,6 +7,7 @@ import { Platform } from '@ionic/angular';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -23,37 +24,53 @@ export class LoginPage implements OnInit {
     private platform:Platform,
     private storage:NativeStorage) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let token
+        if(this.platform.is("desktop")){
+          token=localStorage.getItem('token');
+        }else{
+          token = await this.storage.getItem('token');
+        }
+        console.log(token);
+        if(token!==undefined&& token!==null){
+          this.router.navigate(['/home']);
+        }
   }
 
   checkEmail() {
     const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
-    // this.isErrorMail = !regex.test(this.email);
+    
     this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
 }
 
-async loginForm() {
+async logForm() {
   const load = await this.loading.create({
       message: 'Please wait...',
   });
   await load.present();
-  this.auth.login(this.email, this.password).then(async(user: any) => {
-      console.log(this.platform.platforms());
-      if (this.platform.is("desktop")) {
-          localStorage.setItem('token', user.token)
-          localStorage.setItem('user', JSON.stringify(user.user))
-      } else {
-          await this.storage.setItem('token', user.token)
-          await this.storage.setItem('user', JSON.stringify(user.user))
-      }
-      await this.loading.dismiss();
-      this.router.navigate(['/home'])
+  // console.log(this.email)
+  // console.log(this.password)
+  console.log(this.platform.platforms())
+  this.auth.login(this.email,this.password).then(async(user:any)=>{
+    if(this.platform.is("desktop")){
+      console.log("l 56");
+      localStorage.setItem('token',user.token)
+      localStorage.setItem('user',JSON.stringify(user))
+    }else{
+      await this.storage.setItem('token',user.token)
+      await this.storage.setItem('user',JSON.stringify(user))
+    }
+    await this.loading.dismiss();
+    this.router.navigate(['/home'])
   }).catch(async() => {
-      this.email = ''
-      this.password = ''
-      this.isErrorMail = true;
-      await this.loading.dismiss();
+    console.log('erreur');
+    this.email=''
+    this.password=''
+    this.isErrorMail=true;
+    await this.loading.dismiss();
   })
 }
+
+
 
 }
