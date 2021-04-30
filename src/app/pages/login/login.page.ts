@@ -4,7 +4,6 @@ import { AuthService } from '../../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { json } from 'express';
 
 
 
@@ -51,8 +50,10 @@ async logForm() {
   await load.present();
   // console.log(this.email)
   // console.log(this.password)
+  console.log(this.platform.platforms())
   this.auth.login(this.email,this.password).then(async(user:any)=>{
     if(this.platform.is("desktop")){
+      console.log("l 56");
       localStorage.setItem('token',user.token)
       localStorage.setItem('user',JSON.stringify(user))
     }else{
@@ -60,7 +61,7 @@ async logForm() {
       await this.storage.setItem('user',JSON.stringify(user))
     }
     await this.loading.dismiss();
-    this.router.navigate(['/Menu'])
+    this.router.navigate(['/menu'])
   }).catch(async() => {
     console.log('erreur');
     this.email=''
@@ -69,5 +70,7 @@ async logForm() {
     await this.loading.dismiss();
   })
 }
+
+
 
 }
