@@ -19,9 +19,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-col class="ion-text-left">
+  <ion-col class="form">
     <img src = {{data.image}} />
     <h3>{{data.nom}}</h3>
     <p class="ion-text-right">{{data.prix}}€</p>
+    <ion-button button = true class="logBtn" (click) = "addPanier()">
+      Ajouter au panier
+    </ion-button>
   </ion-col>
 </ion-content>

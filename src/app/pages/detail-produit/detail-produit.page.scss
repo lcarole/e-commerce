@@ -1,0 +1,24 @@
+.form{
+    .logBtn{
+        --background:linear-gradient(to right top, #25065e, #41348a, #5049a5, #8680ac, #f1f1f7);
+        --background-hover: linear-gradient(to right top, #25065e, #41348a, #5049a5, #8680ac, #f1f1f7);
+        --background-focused: linear-gradient(to right top, #25065e, #41348a, #5049a5, #8680ac, #f1f1f7);
+        --background-activated: linear-gradient(to right top, #25065e, #41348a, #5049a5, #8680ac, #f1f1f7);
+    }
+    .text{
+        padding: 0% 2%;
+        h4{
+            text-align: center;
+        }
+    }
+    .errorEmail {
+        border-bottom: #ff0000;
+        --border-color: #ff0000;
+        --highlight-background: #ff0000;
+    }
+    .goodEmail {
+        border-bottom: #64fa00;
+        --border-color: #64fa00;
+        --highlight-background: #64fa00;
+    }
+}

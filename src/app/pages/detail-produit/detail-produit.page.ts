@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DataService, IProduit} from '../../services/data.service';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-detail-produit',
@@ -29,6 +28,14 @@ export class DetailProduitPage implements OnInit {
     });
   }
 
-
-
+  addPanier(){
+    
+    if (localStorage.length == null){
+      length = 0;
+    }
+    else{
+      length = localStorage.length;
+    }
+    localStorage.setItem(length.toString(),this.data);
+  }
 }
