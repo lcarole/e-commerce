@@ -32,9 +32,9 @@ export class LoginPage implements OnInit {
           token = await this.storage.getItem('token');
         }
         console.log(token);
-        if(token!==undefined&& token!==null){
-          this.router.navigate(['/menu']);
-        }
+        // if(token!==undefined&& token!==null){
+        //   this.router.navigate(['/menu']);
+        // }
   }
 
   checkEmail() {
