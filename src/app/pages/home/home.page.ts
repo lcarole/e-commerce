@@ -10,7 +10,6 @@ import {Router} from '@angular/router';
 export class HomePage implements OnInit {
   public produits:IProduit[] = [];
   public BestSellProduits:IProduit[] = [];
-  public produitSelect: IProduit;
   
 
   constructor(

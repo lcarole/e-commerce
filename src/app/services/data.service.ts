@@ -15,6 +15,12 @@ export interface IProduit {
   categorie:number,
 }
 
+//Produit du Panier
+export interface IProduitPanier {
+  produit: IProduit,
+  quantite:number,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -166,4 +172,5 @@ export class DataService {
 
     return BestProduits;
   }
+
 }
