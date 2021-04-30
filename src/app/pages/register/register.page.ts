@@ -38,10 +38,17 @@ export class RegisterPage implements OnInit {
     this.user.fullname = this.user.email.split('@') [0];
     this.auth.register(this.user).then(async(data)=>{
       console.log(data);
+      console.log("l 41");
       await this.loading.dismiss();
+      const toast = await this.toast.create({
+        message:'utilisateur creer',
+        duration:2000
+      })
+      toast.present();
       this.router.navigate(['/login'])
     }).catch(async(err)=>{
       console.log(err);
+      console.log('erreur');
       const toast = await this.toast.create({
         message: err,
         duration: 2000
