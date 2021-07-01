@@ -10,7 +10,8 @@ import {DataService, IProduit} from '../../services/data.service';
 export class FiltreCategoriePage implements OnInit {
   data:any;
   private listProduits:IProduit[];
-  private filtreProduits:IProduit[] = [];
+  private produits:IProduit[];
+  public filtreProduits:IProduit[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -36,6 +37,20 @@ export class FiltreCategoriePage implements OnInit {
   detail(produit:IProduit){
     
     this.router.navigate(['/detail-produit/'+JSON.stringify(produit.id)]);
+  }
+
+  recherche(event:any){
+    this.produits = this.dataService.getProduits();
+    const ev = event.detail.value;
+
+    if(ev && ev.trim() != ''){
+      this.produits = this.produits.filter((item)=>{
+        return (item.nom.toLowerCase().indexOf(ev.toLowerCase())>-1)
+      })
+    }
+    else{
+      this.produits = [];
+    }
   }
 
 }
