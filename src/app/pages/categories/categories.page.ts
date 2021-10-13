@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService, ICategorie} from '../../services/data.service';
-import {Router} from '@angular/router'
+import {DataService} from '../../services/data.service';
+import {Router} from '@angular/router';
+import {ICategorie} from "../../interfaces/ICategorie";
 
 @Component({
   selector: 'app-categories',

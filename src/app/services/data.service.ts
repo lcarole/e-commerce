@@ -1,25 +1,8 @@
 import { Injectable } from '@angular/core';
+import {IProduit} from "../interfaces/IProduit";
+import {IProduitPanier} from "../interfaces/IProduitPanier";
+import {ICategorie} from "../interfaces/ICategorie";
 
-// Catégorie
-export interface ICategorie {
-  id: number,
-  nom: string,
-}
-
-// Produit
-export interface IProduit {
-  id: number,
-  nom: string,
-  prix: number,
-  image: string,
-  categorie:number,
-}
-
-//Produit du Panier
-export interface IProduitPanier {
-  produit: IProduit,
-  quantite:number,
-}
 
 @Injectable({
   providedIn: 'root'

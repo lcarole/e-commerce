@@ -9,7 +9,7 @@ import { UserRegister } from '../interfaces/user-register';
 })
 export class AuthService {
 
-  url:string='http://localhost:5050/'; // toto@toto.fr  toto+toto
+  url:string='http://e-commerce.eu-4.evennode.com'; // toto@toto.fr  toto+toto
 
 
 
@@ -17,7 +17,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return new Promise((resolve, rejects) => {
-        this.http.post(this.url + 'login', { email: email, password: password }).subscribe((data: any) => {
+        this.http.post(this.url + '/login', { email: email, password: password }).subscribe((data: any) => {
             (!data.success)? rejects(data.message): resolve(data);
         });
     });

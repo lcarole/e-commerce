@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {DataService, IProduit} from '../../services/data.service';
+import {DataService} from '../../services/data.service';
+import {IProduit} from "../../interfaces/IProduit";
 
 @Component({
   selector: 'app-filtre-categorie',

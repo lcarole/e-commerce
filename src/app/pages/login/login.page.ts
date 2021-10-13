@@ -23,7 +23,17 @@ export class LoginPage implements OnInit {
     private platform:Platform,
     private storage:NativeStorage) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let token
+        if(this.platform.is("desktop")){
+          token=localStorage.getItem('token');
+        }else{
+          token = await this.storage.getItem('token');
+        }
+        console.log(token);
+        if(token!==undefined&& token!==null){
+          this.router.navigate(['/home']);
+        }
   }
 
   checkEmail() {
@@ -47,7 +57,7 @@ async loginForm() {
           await this.storage.setItem('user', JSON.stringify(user.user))
       }
       await this.loading.dismiss();
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home/'])
   }).catch(async() => {
       this.email = ''
       this.password = ''
